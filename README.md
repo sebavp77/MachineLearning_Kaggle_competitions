@@ -1,5 +1,6 @@
 # LEAP_ClimSim_Competition
 Kaggle competition on the simulation of higher resolution processes within E3SM-MMF model.
+The goal is to develope machine learning models to accurately emulate subgrid-scale atmospheric physics in an operational climate model.
 
 ## Data structure
 The training dataset provided by the competition is described on the [LEAP-ClimSIM](https://www.kaggle.com/competitions/leap-atmospheric-physics-ai-climsim) competition page. In short, the data consists of different atmospheric variables. Some of these variables have vertical levels, which are expanded into separate columns.
