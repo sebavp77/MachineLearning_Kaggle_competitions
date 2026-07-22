@@ -11,6 +11,7 @@ despite `self.expand`and `self.project`are very similar they different in the ou
 
 Mathematically, the `EinSumDense` does: $$y_{abd} = \sum_c x_{abc}W_{cd}$$
 then, the dimension `d` which is in the weights and in the output defines the size of the outputs. This is equivalent to apply a feed-forward net
+
 ![feed forward basic](../Excalidraw/feed_forward_basic)
 
 ## Gated Liner Unit (GLU)
