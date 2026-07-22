@@ -1,3 +1,4 @@
 # Obsidian workspace (user-specific)
 .obsidian/workspace.json
-.obsidian/workspace-mobile.json*.keras
+.obsidian/workspace-mobile.json
+*.keras
