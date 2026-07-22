@@ -118,7 +118,7 @@ Predict
 Save model
 ```
 ## Hyperparameters you usually tune
-```
+
 |Hyperparameter|Typical values|
 |---|---|
 |Learning rate|1e-2, 1e-3, 1e-4|
@@ -129,4 +129,4 @@ Save model
 |Optimizer|Adam, SGD, RMSprop|
 |Dropout|0.1–0.5|
 |Weight decay|1e-6–1e-2|
-```
+
