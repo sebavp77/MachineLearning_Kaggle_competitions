@@ -9,6 +9,7 @@ The objective is not only to reproduce the final results but also to understand 
 Most of the documentation consists of interconnected Obsidian notes, allowing concepts to be linked across competitions and topics. Instead of providing only a high-level overview, the goal is to explain the code step by step, highlighting the motivation behind each design decision and connecting it to the underlying machine learning concepts. The repository can be read directly on GitHub, but the best experience is achieved by opening it as an Obsidian vault, where backlinks, graph view, and internal links become available.
 
 # Repository Structure
+```text
 competitions/
 ├── competition_1/
 │   ├── README.md          # Competition overview
@@ -23,6 +24,7 @@ General/
 ├── ...
 figures/
 Papers/
+```
 
 # Goals
 Learn from state-of-the-art Kaggle solutions.
