@@ -1,6 +1,3 @@
-Recompilation of some useful and interesting papers.
-
-# Attention is all you need
 ## Reference
 Vaswani, A. _et al._ Attention is All you Need. in _Advances in Neural Information Processing Systems_ vol. 30 (Curran Associates, Inc., 2017).
 
@@ -11,9 +8,9 @@ It removes #recurrent and #convolutional structures in favor of #attention mecha
 - Recurrent neural networks #RNN or #convolutional struggled with long-range dependencies and parallelization.
 - #self-attention allows model dependencies across entire sequences efficiently and in parallel.
 ## Model architecture
-![[Pasted image 20260607124038.png]]
+![The transformer, model architecture](../figures/Pasted%20image%2020260607124038.png)
 In the left side of Fig1 the basic block of the transformer is presented. From bottom to top, the inputs are words so they are #token ized and then compute their embeddings. This means, conver the words into a vector and then projected into a space. Layer these embedded words are given to the *multi-head attention*, which is one of the novelties of this paper. The multi-head attention is show in the next figure:
-![[Pasted image 20260607124404.png]]
+![Multi-head attention](Pasted%20image%2020260607124404.png)
 The right part of the figure shows the multi-head attention structure while the left-side part shows the basic blocks of the multi-head attention.
 This left side is the computation and the forming blocks of the whole structure. the *scaled dot-product attention* computes the *self-attention* as $$\text{Attention(Q,K,V)} = \text{softmax}(\frac{QK^T}{\sqrt{d_k}})V$$ 
 Where Q, K and V are matrices that have different roles. *Q* is the *query* matrix, *K* is the *Key* matrix, and *V* is the *value* matrix. Let's understand how these matrices work with an example:

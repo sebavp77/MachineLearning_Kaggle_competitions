@@ -2,7 +2,7 @@
 https://www.kaggle.com/competitions/leap-atmospheric-physics-ai-climsim
 
 # Assembling the puzzle
-
+#assembling_puzzle
 The approach I will take to learn about this solution is backwards. I will start with the training notebook and move backwards collecting all pieces required to perform the training.
 
 The model training is performed with
@@ -762,9 +762,6 @@ def get_normed(x, valid = False):
 **Note:** `signed-log transform`: for values way greater than 1 take the log(value), and for values lower than 1 uses -log(2-value), which is the mirror/reflection making the function continuous and roughly antisymmetric around the shift point. This is a common trick to compress heavy-tailed distributions on both sides while keeping small values roughly linear.
 ![Example of log-transformed distribution](../figures/Pasted%20image%2020260718164501.png)
 
-
-
-
 ###### **Note: on Normalization and Clipping (cutoff)**
 After `z-score` normalization, a well-behaved Gaussian feature should mostly go from `[-3,3]`. But real word data often has **heavy-tailed distributions** (occasional extreme values) that land at z-scores of 10, 50, 1000.
 ***If you those values into a neural network*** 
@@ -849,4 +846,3 @@ val_1_ds, val_1_labels_ds, val_1_labels_ds_2, val_1_ds_q0002 = get_dataset(
 ## Getting additional information
 In the previous section the model structure and the training and validation data were studied. During this process, several variables were used, such as the mean and standard deviation of the data, latitude, longitude and time. Additionally, the datasets were obtained from `TFRecords`. In this section we will explore the original structure of these variables and how the `TFRecords`  and statistical information are obtained.
 
-### Data structure
