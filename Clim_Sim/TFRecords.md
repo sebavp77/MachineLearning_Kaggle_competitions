@@ -1,1 +1,3 @@
 In #assembling_puzzle, we examined the final stage of the solution, where we introduced the winning neural network architecture, the data normalization strategy, the feature engineering pipeline, and the loading of the training and validation data. As mentioned there, the data is loaded from `TFRecords`. We also explored how to read these records and transform them into a format suitable for feeding the model. In this section, we will discuss how these `TFRecords` are created in the context of big data. Recall that the main dataset alone exceeds 300 GB, while the extended dataset is on the order of terabytes.
+
+

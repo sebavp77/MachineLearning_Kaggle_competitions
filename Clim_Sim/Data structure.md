@@ -31,5 +31,7 @@ An example of the training dataset is:
 | ... | ... | ... | ... | ... |
 | value383(t=t2) | value383(t=t2) | value383(t=t2) | value383(t=t2) | value383(t=t2) |
 | ... | ... | ... | ... | ... |
+ 
+ 
  _Table 1. Example of the training dataset structure. Variables with vertical levels are expanded into multiple columns using the base variable name with the suffix **_i** (i from 0 to 59). Each row represents a different location at a specific time, and every 384 rows correspond to a new time step._
  
