@@ -760,6 +760,7 @@ def get_normed(x, valid = False):
 ```
 
 **Note:** `signed-log transform`: for values way greater than 1 take the log(value), and for values lower than 1 uses -log(2-value), which is the mirror/reflection making the function continuous and roughly antisymmetric around the shift point. This is a common trick to compress heavy-tailed distributions on both sides while keeping small values roughly linear.
+
 ![Example of log-transformed distribution](Pasted%20image%2020260718164501.png)
 
 ###### **Note: on Normalization and Clipping (cutoff)**
