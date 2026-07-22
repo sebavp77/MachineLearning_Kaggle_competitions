@@ -123,7 +123,7 @@ the model should learn that, for example, _Edges_ is more important than _Noise_
 Suppose the output of a convolutional layer is $$X \epsilon R^{L\times C}$$
 where L is a sequence length (or time steps) and C is the number of channels.
 For example, the feature map is
-```markdown
+
 |Time|Ch1|Ch2|Ch3|Ch4|
 |---|--:|--:|--:|--:|
 |1|2|5|1|7|
@@ -131,7 +131,7 @@ For example, the feature map is
 |3|1|6|1|8|
 |4|2|5|3|7|
 |5|4|4|2|9|
-```
+
 
 1. Compute one summary value per channel using global average pooling. For our example, channel 1 is: $$\frac{2+3+1+2+4}{5}=2.4$$
 	so now we have for each channel
