@@ -760,7 +760,8 @@ def get_normed(x, valid = False):
 ```
 
 **Note:** `signed-log transform`: for values way greater than 1 take the log(value), and for values lower than 1 uses -log(2-value), which is the mirror/reflection making the function continuous and roughly antisymmetric around the shift point. This is a common trick to compress heavy-tailed distributions on both sides while keeping small values roughly linear.
-![[Pasted image 20260718164501.png]]
+
+![[figures/Pasted image 20260718164501.png]]
 
 ###### **Note: on Normalization and Clipping (cutoff)**
 After `z-score` normalization, a well-behaved Gaussian feature should mostly go from `[-3,3]`. But real word data often has **heavy-tailed distributions** (occasional extreme values) that land at z-scores of 10, 50, 1000.
