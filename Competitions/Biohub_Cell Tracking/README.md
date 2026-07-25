@@ -71,5 +71,35 @@ This window permits a predicted fork one timepoint before or after the GT split 
 - The location is each chunk is `0/c/{t}/0/0/0`
 - The physical voxel scale is z=1.625, y=0.40625, x=0.40625 µm/voxel.
 
+# Model Baseline
+```
+End-to-end detection + linking, trained jointly:
+
+1. **Detection**: a 3D U-Net with temporal attention (`TemporalUNet3D`) produces per-voxel features and a single-channel detection map; cell centres are recovered with local-max suppression.
+   
+2. **Linking**: per-node features from the U-Net are pooled at the detected centres and fed to a cross-attention transformer (`SimpleNodeTransformer`), which scores every (t, t+1) node pair.
+
+3. **Sparse supervision**: only edges with ground truth are used for backpropagation — background detections and unannotated cells are ignored during training.
+```
+
+==**Interpretation**== 
+**High-Level Concept: "End-to-end detection + linking, trained jointly":** the pipeline takes raw 3D video frames as input and directly outputs connected trajectories without requiring hardcoded, manual rules between stages. Additionally, the *detection module* and *linking module* ==update their weights together during training==.
+
+**Detection stage:** _"a 3D U-Net with temporal attention (TemporalUNet3D) produces per-voxel features and a single-channel detection map; cell centres are recovered with local-max suppression_
+- A Unet is an encoder-decoder neural network (NN) commonly used for image segmentation. Because microscopy video has 3D volumes, the *3D U-Net* processes these volumes. Additionally, our dataset has a time dimension, *temporal attention* helps the network focus on changes between frames.
+- Per-voxel features: For* every voxel* in the 3D grid, the U-Net calculates a *rich vector of numbers* (features) describing it.
+- Single-channel detection map: The *U-Net outputs* a *probability heatmap* of the *same 3D shape*, where higher values indicate a high likelihood that a cell center is present at that voxel.
+- Local-max suppression: Probability heatmaps create "blobs" of high values near a cell.* Local-maximum suppression* suppresses all neighbor voxels around a peek, *leaving only the single highest voxel coordinate* to represent the exact center of each *detected cell*.
+
+**Linking stage:** *"per-node features from the U-Net are pooled at the detected centres and fed to a cross-attention transformer (SimpleNodeTransformer), which scores every (t, t+1) node pair"*
+- Per-node features pooled at detected centers: Each detected center becomes a "node". The model extracts (pools) the spatial feature vectors (created during the U-Net step) at those exact coordinate locations.
+- Cross-attention transformer (`SimpleNodeTransformer`): A transformer NN uses *attention mechanisms* to *evaluate relationships between items*. Cross-attention lets the model compare the feature representation of a cell at frame t with candidate cells in frame t+1.
+- Scoring every (t, t+1) node pair: For *every detected cell at time t*, the transformer calculates a *connection score against* *every candidate cell at time t+1*. A *high score* indicated a *high probability* that both detections belong to the *exact same physical cell* *or* they have a *parent-child relationship.*
+
+**Training strategy: Sparse supervision:** *"only edges with ground truth are used for backpropagation — background detections and unannotated cells are ignored during training"*
+- Ground truth edges: "Edges" refer to the tracked links connecting a cell at time t to its position at time t+1
+- backpropagation on ground truth only: Fully annotating every single cell across thousands of 3D frames is practically impossible. *During training (backpropagation)*, the *loss function* only measures *error* on the *specific links that human experts explicitly labeled.*
+- Ignoring unannotated cells: If the model detects a cell or link that has no label in the dataset, it does not penalize the model. This keeps incomplete human annotations from falsely penalizing the AI for finding real cells that the human annotator missed. **But** there is a correction term accounting for the fact that the model could try to predict more nodes, so if the amount of predicted nodes is larger than the amount of labeled nodes the loss metric in increased.
+
 
 
