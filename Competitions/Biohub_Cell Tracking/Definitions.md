@@ -7,7 +7,7 @@ In a 2D camera, a pixel represents a square area (width $\times$ height). In a 3
 - **$z$ coordinate** corresponds to the optical section or slice index as the microscope moves vertically.
 The following figure shows an example of a voxel. Anisotropy in voxels occurs when they are stretched along one axis (usually z) compared to the xy plane. 
 
-![Voxel example](../../Excalidraw/voxel_example)
+![Voxel example](../../Excalidraw/voxel_example.md)
 
 In the competition they scale the voxel values to represent **physical dimensions**, this is, correct for the distortion introduced by the measurement (optical setup of the microscope).
 - **In-plane resolution ($x = y = 0.40625\ \mu\text{m}$):**
