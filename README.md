@@ -1,8 +1,6 @@
 
 # Kaggle Competitions
-This repository documents my journey through different Kaggle competitions using **Obsidian** as the primary medium for organizing and connecting knowledge. Rather than being just a collection of notebooks, it is intended as a structured learning resource where I study, reproduce, and explain competition solutions.
-
-Some competitions explore the winning solutions in detail, with the goal of understanding the reasoning behind the design choices, implementation details, and techniques that led to their success. Other competitions present and document my own solutions. In every competition, it is clearly stated whether the code and explanations correspond to a winning solution or to my own work.
+This repository documents my work across different Kaggle competitions, using Obsidian to organize and connect the underlying concepts. For each competition, I build my own solution end-to-end; in several cases I also study and reproduce top-performing solutions from other competitors to understand the design decisions behind them. Each competition folder clearly labels which parts are my own solution and which are reproductions of others' work, along with the reasoning and ML concepts behind each approach.
 
 The objective is not only to reproduce the final results but also to understand **why** each component of the pipeline works. To achieve this, the explanations go beyond the competition code and introduce, whenever needed, the TensorFlow or PyTorch concepts required to follow the implementation naturally. Along the way, I also discuss machine learning terminology, neural network architectures, feature engineering, data pipelines, training strategies, best practices, and relevant research papers.
 
